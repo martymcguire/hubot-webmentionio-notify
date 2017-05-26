@@ -13,7 +13,7 @@ describe 'hubot-webmention-io', ->
   afterEach ->
     @room.destroy()
 
-  it 'responds to wmio follow with a needs url', ->
+  it 'responds to wmio follow with needs url', ->
     @room.user.say('alice', '@hubot wmio follow').then =>
       expect(@room.messages).to.eql [
         ['alice', '@hubot wmio follow']
@@ -28,6 +28,20 @@ describe 'hubot-webmention-io', ->
         ['alice', '@hubot wmio follow http://example.com/']
         ['hubot', '@alice OK! Use this as your Web Hook: <HUBOT_URL>/hubot/wmio/notify\nAnd use this as your callback secret: ' + token]
       ]
+
+  it 'unfollows if asked', ->
+    @room.user.say('alice', '@hubot wmio follow http://example.com/').then =>
+      tokens = @room.robot.brain.get('wmio_tokens')
+      token = Object.keys(tokens)[0]
+      @room.user.say('alice', '@hubot wmio unfollow http://example.com/').then =>
+        tokens = @room.robot.brain.get('wmio_tokens')
+        expect(tokens).to.eql {}
+        expect(@room.messages).to.eql [
+          ['alice', '@hubot wmio follow http://example.com/']
+          ['hubot', '@alice OK! Use this as your Web Hook: <HUBOT_URL>/hubot/wmio/notify\nAnd use this as your callback secret: ' + token]
+          ['alice', '@hubot wmio unfollow http://example.com/']
+          ['hubot', '@alice OK! No longer following http://example.com/']
+        ]
 
   it 'uses unique tokens for different follow urls', ->
     @room.user.say('alice', '@hubot wmio follow http://example.com/').then =>

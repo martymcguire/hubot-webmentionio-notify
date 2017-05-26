@@ -1,16 +1,16 @@
 {
-  "name": "hubot-hubot-webmention-io",
+  "name": "hubot-webmentionio-notify",
   "description": "Handle notification of new mentions from webmention.io",
   "version": "0.0.0",
   "author": "Marty McGuire <marty@martymcgui.re>",
   "license": "MIT",
-  "keywords": "hubut, hubot-scripts, webmention, webmention.io, IndieWeb",
+  "keywords": "hubot, hubot-scripts, webmention, webmention.io, IndieWeb",
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-hubot-webmention-io.git"
+    "url": "git://github.com/martymcgui.re/hubot-webmentionio-nofity.git"
   },
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-hubot-webmention-io/issues"
+    "url": "https://github.com/martymcgui.re/hubot-webmentionio-nofity/issues"
   },
   "dependencies": {
     "randomstring": "^1.1.5"

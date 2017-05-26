@@ -36,6 +36,16 @@ module.exports = (robot) ->
       robot.brain.set('wmio_tokens', tokens)
     res.reply "OK! Use this as your Web Hook: <HUBOT_URL>/hubot/wmio/notify\nAnd use this as your callback secret: " + token
 
+  robot.respond /wmio unfollow ?(.*)?/, (res) ->
+    url = res.match[1]
+    if not url
+      res.reply "I need a URL to unfollow."
+      return
+    tokens = robot.brain.get('wmio_tokens') or {}
+    (delete(tokens[t]) for t, props of tokens when (props.url == url))
+    robot.brain.set('wmio_tokens', tokens)
+    res.reply "OK! No longer following " + url
+
   robot.router.post "/hubot/wmio/notify", (req, res) ->
     data = req.body.payload or req.body
     if not data.secret?
