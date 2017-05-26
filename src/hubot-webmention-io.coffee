@@ -3,6 +3,7 @@
 #
 # Commands:
 #   hubot wmio follow <url> - Generate a token and start listening for notifcations from webmention.io for <url>. Notifications will go to the room you are in when you start following.
+#   hubot wmio unfollow <url> - Forget all tokens for <url>
 #
 # Notes:
 #   Your site should already be configured to receive webmentions at webmention.io.
