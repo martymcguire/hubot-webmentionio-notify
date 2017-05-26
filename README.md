@@ -23,7 +23,7 @@ Then add **hubot-webmentionio-notify** to your `external-scripts.json`:
 ```
 user1>> hubot wmio follow mywebsite.com
 hubot>> @user1 OK! Use this as your Web Hook: <HUBOT_URL>/hubot/wmio/notify
-And use this ass your callback secret: 1a2b3c4d5e6f7890
+And use this as your callback secret: 1a2b3c4d5e6f7890
 ```
 
 In your [webmention.io dashboard](https://webmention.io/dashboard), set the Web
