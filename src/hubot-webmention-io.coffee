@@ -72,7 +72,7 @@ module.exports = (robot) ->
 
   robot.on "wmio-notify", (params) ->
     if not params.data?.post?
-      robot.send params.room, "New mention for " + params.url
+      robot.messageRoom params.room, "New mention for " + params.url
       return
     post = params.data.post
     message = switch post['wm-property']
@@ -82,4 +82,4 @@ module.exports = (robot) ->
       when "mention-of" then "" + post.author.name + " mentioned " + post['mention-of'] + " - " + reply_content(post) + " (" + post.url + ")"
       when "rsvp" then "" + post.author.name + " RSVP'd " + reply_content(post) + " to " + post.rsvp + " - " + post.url
       else "New mention for " + params.url + " - " + post.url
-    robot.send params.room, message
+    robot.messageRoom params.room, message

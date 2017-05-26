@@ -1,7 +1,7 @@
 {
   "name": "hubot-webmentionio-notify",
   "description": "Handle notification of new mentions from webmention.io",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Marty McGuire <marty@martymcgui.re>",
   "license": "MIT",
   "keywords": "hubot, hubot-scripts, webmention, webmention.io, IndieWeb",
