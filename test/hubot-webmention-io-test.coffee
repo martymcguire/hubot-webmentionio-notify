@@ -186,14 +186,15 @@ describe 'hubot-webmention-io', ->
             name: 'is attending.',
             author: { name: 'Alice' },
             'wm-property': 'rsvp',
-            'rsvp': 'http://example.com/1',
+            'rsvp': 'yes',
+            'in-reply-to': 'http://example.com/1',
             url: 'http://example.com/2'
           }
         })
         .expect(200)
         .then =>
           expect(@room.messages).to.eql [
-            ['hubot', 'Alice RSVP\'d "is attending." to http://example.com/1 - http://example.com/2']
+            ['hubot', 'Alice RSVP\'d yes ("is attending.") to http://example.com/1 - http://example.com/2']
           ]
 
     it 'sends a mention-of notification on a mention-of', ->

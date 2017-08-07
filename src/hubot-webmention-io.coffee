@@ -81,6 +81,6 @@ module.exports = (robot) ->
       when "repost-of" then "" + post.author.name + " reposted " + post['repost-of'] + " - " + post.url
       when "in-reply-to" then "" + post.author.name + " replied " + reply_content(post) + " to " + post['in-reply-to'] + " - " + post.url
       when "mention-of" then "" + post.author.name + " mentioned " + post['mention-of'] + " - " + reply_content(post) + " (" + post.url + ")"
-      when "rsvp" then "" + post.author.name + " RSVP'd " + post.rsvp + "(" + reply_content(post) + ") to " + post['in-reply-to'] + " - " + post.url
+      when "rsvp" then "" + post.author.name + " RSVP'd " + post.rsvp + " (" + reply_content(post) + ") to " + post['in-reply-to'] + " - " + post.url
       else "New mention for " + params.url + " - " + post.url
     robot.messageRoom params.room, message
